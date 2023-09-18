@@ -1,4 +1,4 @@
-# Dictionary ( Inlkämning )
+# Dictionary ( Inlämning )
 ## Praktisk del
 
 Din uppgift är att implementera en ordbok där användare kan slå upp ord med hjälp av
