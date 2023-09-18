@@ -21,15 +21,16 @@ sparade svaret från API. Man ska även kunna ta bort sina favoritord.
 * [VG] Byta mellan dark och light theme.
 
 # Testning
-[G] Appen innehåller enhetstester och/eller integrationstester som säkerställer
+* [G] Appen innehåller enhetstester och/eller integrationstester som säkerställer
 att koden huvudsakligen fungerar som den ska.
-[VG] Appen innehåller väl valda enhetstester och/eller integrationstester som
+* [VG] Appen innehåller väl valda enhetstester och/eller integrationstester som
 säkerställer att koden i hög utsträckning fungerar som den ska.
-[VG] Eleven resonerar väl kring sitt val av tester och testningsmetodik.
-Övrigt
-[G] Applikationen har en användarvänlig design.
-[G] Koden ska vara väl kommenterad.
-[VG] Koden är lätt att följa. Se exempelvis
+* [VG] Eleven resonerar väl kring sitt val av tester och testningsmetodik.
+
+## Övrigt
+* [G] Applikationen har en användarvänlig design.
+* [G] Koden ska vara väl kommenterad.
+* [VG] Koden är lätt att följa. Se exempelvis
 (https://github.com/ryanmcdermott/clean-code-javascript) och
 (https://github.com/alan2207/bulletproof-react). Kom ihåg att det är viktigt
 att anpassa sig efter scopet på gällande projekt. Kommentera gärna i koden om
