@@ -1,5 +1,4 @@
 # Dictionary ( Inlkämning )
-
 ## Praktisk del
 
 Din uppgift är att implementera en ordbok där användare kan slå upp ord med hjälp av
@@ -9,7 +8,6 @@ några extra stycken i den teoretiska inlämningen. I inlämningen ska du ge lä
 tillgång till din kodbas, förslagsvis via en länk till ett GitHub repo.
 
 #### Features
-
 * [G] Användaren kan söka efter ord i ett sökfält
 * [G] Användaren kan se svaret från Free Dictionary API i en användarvänlig form.
 All information som finns med i exempelsvaret på förstasidan hos Free
@@ -22,7 +20,6 @@ sparade svaret från API. Man ska även kunna ta bort sina favoritord.
 * [VG] Byta mellan dark och light theme.
 
 #### Testning
-
 * [G] Appen innehåller enhetstester och/eller integrationstester som säkerställer
 att koden huvudsakligen fungerar som den ska.
 * [VG] Appen innehåller väl valda enhetstester och/eller integrationstester som
@@ -30,7 +27,6 @@ säkerställer att koden i hög utsträckning fungerar som den ska.
 * [VG] Eleven resonerar väl kring sitt val av tester och testningsmetodik.
 
 #### Övrigt
-
 * [G] Applikationen har en användarvänlig design.
 * [G] Koden ska vara väl kommenterad.
 * [VG] Koden är lätt att följa. Se exempelvis
