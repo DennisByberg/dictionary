@@ -1,6 +1,7 @@
 # Dictionary ( Inlkämning )
 
 ## Praktisk del
+
 Din uppgift är att implementera en ordbok där användare kan slå upp ord med hjälp av
 Free Dictionary API. Du kan leta runt på internet för inspiration till en egen design.
 Om du vill resonera kring dina val av tester och byggsystem går det bra att skriva in
