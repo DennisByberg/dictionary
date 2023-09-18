@@ -1,0 +1,20 @@
+@import "./sass/colors";
+@import "./sass/fonts";
+@import "./sass/mixins";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  background-color: $defaultDarkModeBackground;
+  color: $defaultDarkModeText;
+}
+
+.App {
+  background-color: $defaultDarkModeBackground;
+  color: $defaultDarkModeText;
+}
