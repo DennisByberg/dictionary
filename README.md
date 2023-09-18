@@ -8,7 +8,7 @@ Om du vill resonera kring dina val av tester och byggsystem går det bra att skr
 några extra stycken i den teoretiska inlämningen. I inlämningen ska du ge läraren
 tillgång till din kodbas, förslagsvis via en länk till ett GitHub repo.
 
-#Features
+# Features
 [G] Användaren kan söka efter ord i ett sökfält
 [G] Användaren kan se svaret från Free Dictionary API i en användarvänlig form.
 All information som finns med i exempelsvaret på förstasidan hos Free
@@ -20,7 +20,7 @@ tillgängliga i en lista för användaren att se. Från listan ska man kunna se 
 sparade svaret från API. Man ska även kunna ta bort sina favoritord.
 [VG] Byta mellan dark och light theme.
 
-#Testning
+# Testning
 [G] Appen innehåller enhetstester och/eller integrationstester som säkerställer
 att koden huvudsakligen fungerar som den ska.
 [VG] Appen innehåller väl valda enhetstester och/eller integrationstester som
