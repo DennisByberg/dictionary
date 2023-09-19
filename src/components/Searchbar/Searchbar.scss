@@ -1,0 +1,49 @@
+@import "../../sass/colors";
+
+.searchbar {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 0 1.5rem;
+
+  &__input {
+    width: 100%;
+    padding: 1.5rem 1rem;
+    color: $white;
+    background-color: transparent;
+    border: 1px solid $blueLogo;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px $darkRedLogo;
+    font-size: 1.2rem;
+
+    &::placeholder {
+      font-style: italic;
+      color: $whiteTransparent1;
+    }
+
+    // INPUT LIGHT MODE
+    &.light-mode {
+      color: $black;
+      border: 2px solid $blueLogo;
+
+      &::placeholder {
+        color: $blackTransparent3;
+      }
+    }
+  }
+
+  img {
+    position: absolute;
+    right: 20px;
+    width: 23px;
+    top: 25px;
+    filter: invert(1);
+    opacity: 0.2;
+
+    &.light-mode {
+      filter: invert(0);
+      opacity: 0.5;
+    }
+  }
+}
