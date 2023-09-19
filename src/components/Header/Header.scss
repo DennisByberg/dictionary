@@ -1,0 +1,20 @@
+@import "../../sass/colors";
+@import "../../sass/fonts";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+
+  &__dictionary-png {
+    width: 58px;
+  }
+
+  &__dictionary-name {
+    @include fontFamilyPoiretOne;
+    letter-spacing: 3px;
+    text-transform: UPPERCASE;
+    text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.6);
+  }
+}
