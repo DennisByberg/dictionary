@@ -2,3 +2,4 @@ NPM packages installed:
 - EsLint?
 - Sass
 - Typescript
+- uuidv4
