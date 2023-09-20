@@ -1,0 +1,65 @@
+@import "../../sass/colors";
+@import "../../sass/fonts";
+
+.word-list {
+  margin: 0 1.5rem;
+  &__card {
+    border: 1px solid $blueLogo;
+    box-shadow: 3px 3px 6px $darkRedLogo;
+    border-radius: 5px;
+    max-width: 800px;
+    margin-inline: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    padding: 2rem;
+  }
+
+  &__word {
+    text-transform: UPPERCASE;
+    font-size: 2rem;
+    // margin-bottom: 1rem;
+  }
+
+  &__phonetic-span {
+    font-style: italic;
+    font-size: 1.2rem;
+  }
+
+  &__phonetic {
+    margin-bottom: 2rem;
+  }
+
+  &__all-meanings {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__meaning {
+    // border: 1px solid red;
+
+    &__part-of-speech {
+      color: $darkRedLogo;
+      text-transform: UPPERCASE;
+      margin-bottom: 0.4rem;
+      border-bottom: 1px solid $yellowLogo;
+    }
+
+    &__definition {
+      margin: 0.5rem 0;
+    }
+  }
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: rgba(255, 60, 213, 0.466);
+}
+
+audio::-webkit-media-controls-time-remaining-display {
+  color: white;
+}
