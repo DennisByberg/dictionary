@@ -4,18 +4,18 @@
   position: relative;
   display: flex;
   justify-content: center;
-  margin: 0 1.5rem;
+  margin: 0 1.5rem 2rem 1.5rem;
 
   &__input {
     width: 100%;
-    padding: 1.5rem 1rem;
+    padding: 1rem 0.7rem;
     color: $white;
     background-color: transparent;
     border: 1px solid $blueLogo;
     outline: none;
     border-radius: 5px;
     box-shadow: 2px 2px 4px $darkRedLogo;
-    font-size: 1.2rem;
+    font-size: 1rem;
 
     &::placeholder {
       font-style: italic;
@@ -37,9 +37,14 @@
     position: absolute;
     right: 20px;
     width: 23px;
-    top: 25px;
+    top: 14px;
     filter: invert(1);
     opacity: 0.2;
+
+    &:hover {
+      transform: scale(1.3);
+      cursor: pointer;
+    }
 
     &.light-mode {
       filter: invert(0);
