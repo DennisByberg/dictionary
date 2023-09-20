@@ -3,6 +3,7 @@ import "./App.scss";
 import Header from "./components/Header/Header";
 import Searchbar from "./components/Searchbar/Searchbar";
 import WordList from "./components/WordList/WordList";
+import DisplayFavorites from "./components/DisplayFavorites/DisplayFavorites";
 
 const DarkModeContext = createContext<TDarkModeContext | undefined>(undefined);
 const ChangeDarkModeContext = createContext<TChangeDarkModeContext | undefined>(
@@ -18,6 +19,7 @@ function App() {
       <DarkModeContext.Provider value={isDarkMode}>
         <ChangeDarkModeContext.Provider value={setIsDarkMode}>
           <Header />
+          <DisplayFavorites />
           <Searchbar setSearchWord={setSearchWord} />
           <WordList searchWord={searchWord} />
         </ChangeDarkModeContext.Provider>

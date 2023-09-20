@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import "./WordList.scss";
 import { v4 as uuidv4 } from "uuid";
+import { FavoriteWord } from "../FavoriteWord/FavoriteWord";
 
 function WordList({ searchWord }: IWordListProps) {
   const [wordObject, setWordObject] = useState<IDictionaryApiResponse[] | []>(
     []
   );
+  const { dispatch } = useContext(FavoriteWord);
 
   useEffect(() => {
     // TODO: Användaren kan se ett error om de söker med ett tomt sökfält.
@@ -29,11 +31,18 @@ function WordList({ searchWord }: IWordListProps) {
     getWordInfo();
   }, [searchWord]);
 
+  function addToFavorites(wordObject: IDictionaryApiResponse[]) {
+    dispatch({ type: "added", payload: wordObject });
+  }
+
   return (
     <div className="word-list">
       {wordObject ? (
         wordObject.map((word) => (
           <div key={uuidv4()} className="word-list__card">
+            <button onClick={() => addToFavorites(wordObject)}>
+              Add To Favorite
+            </button>
             {/* WORD */}
             <h2 className="word-list__word">{word.word}</h2>
             {/* PHONETIC */}
