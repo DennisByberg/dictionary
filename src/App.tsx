@@ -12,7 +12,9 @@ const ChangeDarkModeContext = createContext<TChangeDarkModeContext | undefined>(
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
-  const [searchWord, setSearchWord] = useState<string>("");
+  const [wordObject, setWordObject] = useState<IDictionaryApiResponse[] | []>(
+    []
+  );
 
   return (
     <div className={isDarkMode ? "App" : "App light-mode "}>
@@ -20,8 +22,8 @@ function App() {
         <ChangeDarkModeContext.Provider value={setIsDarkMode}>
           <Header />
           <DisplayFavorites />
-          <Searchbar setSearchWord={setSearchWord} />
-          <WordList searchWord={searchWord} />
+          <Searchbar setWordObject={setWordObject} />
+          <WordList wordObject={wordObject} />
         </ChangeDarkModeContext.Provider>
       </DarkModeContext.Provider>
     </div>

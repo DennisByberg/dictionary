@@ -1,54 +1,39 @@
 import { useContext, useEffect, useState } from "react";
 import "./WordList.scss";
 import { v4 as uuidv4 } from "uuid";
-import { FavoriteWord } from "../FavoriteWord/FavoriteWord";
+import { FavoriteWord } from "../../context/FavoriteWordContextProvider.js";
+import favoriteStarPNG from "../../assets/images/favorite-star.png";
+import notFavoriteStarPNG from "../../assets/images/not-favorite-star.png";
 
-function WordList({ searchWord }: IWordListProps) {
-  const [wordObject, setWordObject] = useState<IDictionaryApiResponse[] | []>(
-    []
-  );
+function WordList({ wordObject }: IWordListProps) {
   const { dispatch } = useContext(FavoriteWord);
-
-  useEffect(() => {
-    // TODO: Användaren kan se ett error om de söker med ett tomt sökfält.
-    if (!searchWord) return;
-    if (searchWord.length < 3) return;
-
-    async function getWordInfo() {
-      const API_URL = `https://api.dictionaryapi.dev/api/v2/entries/en/${searchWord}`;
-      try {
-        const response = await fetch(API_URL);
-        const data: IDictionaryApiResponse[] = await response.json();
-
-        if (data.length) {
-          //   console.log([data[0]]);
-          setWordObject([data[0]]);
-        }
-      } catch (error) {
-        // console.log(error);
-      }
-    }
-    getWordInfo();
-  }, [searchWord]);
+  const [errorMessage, setErrorMessage] = useState<string>("");
 
   function addToFavorites(wordObject: IDictionaryApiResponse[]) {
     dispatch({ type: "added", payload: wordObject });
   }
 
+  useEffect(() => {
+    if (!wordObject)
+      setErrorMessage(
+        "Sorry pal, we couldn't find definitions for the word you were looking for."
+      );
+  });
+
   return (
     <div className="word-list">
-      {wordObject ? (
+      {Array.isArray(wordObject) && wordObject.length > 0 ? (
         wordObject.map((word) => (
           <div key={uuidv4()} className="word-list__card">
-            <button onClick={() => addToFavorites(wordObject)}>
-              Add To Favorite
-            </button>
+            <img
+              src={notFavoriteStarPNG}
+              onClick={() => addToFavorites(wordObject)}
+            ></img>
             {/* WORD */}
             <h2 className="word-list__word">{word.word}</h2>
             {/* PHONETIC */}
-            {/* TODO: Phonetic kan finnas på ett annat ställe...? */}
             <p className="word-list__phonetic">
-              ({" "}
+              (
               <span className="word-list__phonetic-span">
                 {word.phonetic ? word.phonetic : "No phonetic available"}
               </span>{" "}
@@ -89,7 +74,7 @@ function WordList({ searchWord }: IWordListProps) {
           </div>
         ))
       ) : (
-        <p>No words to display</p>
+        <p>{errorMessage}</p>
       )}
     </div>
   );
