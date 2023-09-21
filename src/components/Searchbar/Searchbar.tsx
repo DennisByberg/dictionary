@@ -16,19 +16,25 @@ function Searchbar({ setWordObject }: ISearchbarProps) {
 
   return (
     <div className="searchbar">
-      <input
-        onChange={(e) => setSearchInput(e.target.value)}
-        value={searchInput}
-        className={`searchbar__input${isDarkMode ? "" : " light-mode"}`}
-        placeholder="search..."
-        type="text"
-      />
-      <img
-        onClick={handleSearch}
-        className={`searchbar__searchPNG${isDarkMode ? "" : " light-mode"}`}
-        src={searchPNG}
-        alt="searchPNG"
-      />
+      <div className="searchbar__container">
+        <input
+          onChange={(e) => setSearchInput(e.target.value)}
+          value={searchInput}
+          className={`searchbar__container__input${
+            isDarkMode ? "" : " light-mode"
+          }`}
+          placeholder="search..."
+          type="text"
+        />
+        <img
+          onClick={handleSearch}
+          className={`searchbar__container__searchPNG${
+            isDarkMode ? "" : " light-mode"
+          }`}
+          src={searchPNG}
+          alt="searchPNG"
+        />
+      </div>
     </div>
   );
 }

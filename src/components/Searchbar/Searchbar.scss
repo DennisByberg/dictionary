@@ -1,54 +1,58 @@
 @import "../../sass/colors";
+@import "../../sass/mixins";
 
 .searchbar {
-  position: relative;
-  display: flex;
-  justify-content: center;
   margin: 0 1.5rem 2rem 1.5rem;
+  &__container {
+    @include containerMaxWidthAndCenter;
+    position: relative;
+    display: flex;
+    justify-content: center;
 
-  &__input {
-    width: 100%;
-    padding: 1rem 0.7rem;
-    color: $white;
-    background-color: transparent;
-    border: 1px solid $blueLogo;
-    outline: none;
-    border-radius: 5px;
-    box-shadow: 2px 2px 4px $darkRedLogo;
-    font-size: 1rem;
-
-    &::placeholder {
-      font-style: italic;
-      color: $whiteTransparent1;
-    }
-
-    // INPUT LIGHT MODE
-    &.light-mode {
-      color: $black;
-      border: 2px solid $blueLogo;
+    &__input {
+      width: 100%;
+      padding: 1.2rem 0.7rem;
+      color: $white;
+      background-color: transparent;
+      border: 1px solid $blueLogo;
+      outline: none;
+      border-radius: 5px;
+      box-shadow: 2px 2px 4px $darkRedLogo;
+      font-size: 1rem;
 
       &::placeholder {
-        color: $blackTransparent3;
+        font-style: italic;
+        color: $whiteTransparent1;
+      }
+
+      // Light-Mode
+      &.light-mode {
+        color: $black;
+        border: 2px solid $blueLogo;
+
+        &::placeholder {
+          color: $blackTransparent3;
+        }
       }
     }
-  }
 
-  img {
-    position: absolute;
-    right: 20px;
-    width: 23px;
-    top: 14px;
-    filter: invert(1);
-    opacity: 0.2;
+    img {
+      position: absolute;
+      right: 20px;
+      width: 23px;
+      top: 17px;
+      filter: invert(1);
+      opacity: 0.2;
 
-    &:hover {
-      transform: scale(1.3);
-      cursor: pointer;
-    }
+      &:hover {
+        transform: scale(1.3);
+        cursor: pointer;
+      }
 
-    &.light-mode {
-      filter: invert(0);
-      opacity: 0.5;
+      &.light-mode {
+        filter: invert(0);
+        opacity: 0.5;
+      }
     }
   }
 }
