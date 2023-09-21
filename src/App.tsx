@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Searchbar from "./components/Searchbar/Searchbar";
 import WordList from "./components/WordList/WordList";
 import DisplayFavorites from "./components/DisplayFavorites/DisplayFavorites";
+import ToggleFavorites from "./components/ToggleFavorites/ToggleFavorites";
 
 const DarkModeContext = createContext<TDarkModeContext | undefined>(undefined);
 const ChangeDarkModeContext = createContext<TChangeDarkModeContext | undefined>(
@@ -12,6 +13,7 @@ const ChangeDarkModeContext = createContext<TChangeDarkModeContext | undefined>(
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
+  const [isFavoritesToggled, setIsFavoritesToggled] = useState<boolean>(false);
   const [wordObject, setWordObject] = useState<IDictionaryApiResponse[] | []>(
     []
   );
@@ -21,9 +23,16 @@ function App() {
       <DarkModeContext.Provider value={isDarkMode}>
         <ChangeDarkModeContext.Provider value={setIsDarkMode}>
           <Header />
-          <DisplayFavorites />
+          <ToggleFavorites
+            isFavoritesToggled={isFavoritesToggled}
+            setIsFavoritesToggled={setIsFavoritesToggled}
+          />
           <Searchbar setWordObject={setWordObject} />
-          <WordList wordObject={wordObject} />
+          {isFavoritesToggled ? (
+            <DisplayFavorites />
+          ) : (
+            <WordList wordObject={wordObject} />
+          )}
         </ChangeDarkModeContext.Provider>
       </DarkModeContext.Provider>
     </div>
