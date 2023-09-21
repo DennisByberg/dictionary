@@ -1,43 +1,58 @@
 import { createContext, useReducer } from "react";
+import { v4 as getNewUniqueID } from "uuid";
 
 export const FavoriteWord = createContext<any>(null);
 
 function FavoriteWordContextProvider({ children }: any) {
-  const [favoritedWord, favoritedWordsDispatcher] = useReducer(
+  const [favoritedWord, favoritedWordsDispatcher] = useReducer<any>(
     favoritedWordReducer,
-    [] // Initial state should be an array to hold favorited words
+    []
   );
 
   return (
     <FavoriteWord.Provider
-      value={{ words: favoritedWord, dispatch: favoritedWordsDispatcher }}
+      value={{
+        favoritedWord: favoritedWord,
+        dispatch: favoritedWordsDispatcher,
+      }}
     >
       {children}
     </FavoriteWord.Provider>
   );
 }
 
-// Define the initial id outside of the reducer function
-let id = 1;
-
-const favoritedWordReducer = (favoritedWord: any, action: any) => {
-  // console.log(favoritedWord, action);
+/**
+ * Reducerfunktion
+ * @param favoritedWord - Det aktuella statet
+ * @param action
+ * @returns - Ett nytt state baserat på handlingen
+ */
+function favoritedWordReducer(favoritedWord: any, action: any) {
   switch (action.type) {
-    case "added":
-      // When adding a new word, create a new object with an incremented id
+    case "add":
+      // Kontrollerar om ordet redan finns i reducern
+      const existingWord = favoritedWord.find(
+        (word: any) => word.favoritedWord === action.payload
+      );
+
+      if (existingWord) {
+        return favoritedWord;
+      }
+
       return [
         ...favoritedWord,
         {
-          id: id++,
-          words: action.payload,
+          id: getNewUniqueID(),
+          favoritedWord: action.payload,
         },
       ];
-    case "deleted":
-      // When deleting a word, filter out the word with the matching id
+
+    case "delete":
       return favoritedWord.filter((word: any) => word.id !== action.payload);
+
     default:
-      return;
+      return favoritedWord;
   }
-};
+}
 
 export default FavoriteWordContextProvider;
