@@ -1,27 +1,40 @@
 @import "../../sass/colors";
 @import "../../sass/fonts";
+@import "../../sass/mixins";
 
 .word-list {
   margin: 0 1.5rem;
+
   &__card {
+    @include containerMaxWidthAndCenter;
     border: 1px solid $blueLogo;
     box-shadow: 3px 3px 6px $darkRedLogo;
     border-radius: 5px;
-    max-width: 800px;
     margin-inline: auto;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-
     padding: 2rem;
+    position: relative;
+  }
+
+  &__favoritePNG {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    width: 32px;
+    transition: 0.2s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
   }
 
   &__word {
     text-transform: UPPERCASE;
     font-size: 2rem;
-    // margin-bottom: 1rem;
   }
 
   &__phonetic-span {
@@ -41,8 +54,6 @@
   }
 
   &__meaning {
-    // border: 1px solid red;
-
     &__part-of-speech {
       color: $darkRedLogo;
       text-transform: UPPERCASE;

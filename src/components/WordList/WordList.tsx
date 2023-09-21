@@ -1,16 +1,26 @@
 import { useContext, useEffect, useState } from "react";
 import "./WordList.scss";
-import { v4 as uuidv4 } from "uuid";
+import { v4 as getNewUniqueID } from "uuid";
 import { FavoriteWord } from "../../context/FavoriteWordContextProvider.js";
 import favoriteStarPNG from "../../assets/images/favorite-star.png";
 import notFavoriteStarPNG from "../../assets/images/not-favorite-star.png";
 
 function WordList({ wordObject }: IWordListProps) {
-  const { dispatch } = useContext(FavoriteWord);
+  const { dispatch, favoritedWord } = useContext(FavoriteWord);
   const [errorMessage, setErrorMessage] = useState<string>("");
 
-  function addToFavorites(wordObject: IDictionaryApiResponse[]) {
-    dispatch({ type: "added", payload: wordObject });
+  function handleFavoriteClick() {
+    const wordObjectWord: string = wordObject[0].word;
+
+    const existingWord = favoritedWord.find(
+      (word: any) => word.favoritedWord[0].word === wordObjectWord
+    );
+
+    if (existingWord) {
+      dispatch({ type: "delete", payload: existingWord.id });
+    } else {
+      dispatch({ type: "add", payload: wordObject });
+    }
   }
 
   useEffect(() => {
@@ -24,10 +34,19 @@ function WordList({ wordObject }: IWordListProps) {
     <div className="word-list">
       {Array.isArray(wordObject) && wordObject.length > 0 ? (
         wordObject.map((word) => (
-          <div key={uuidv4()} className="word-list__card">
+          <div key={getNewUniqueID()} className="word-list__card">
+            {/* FAVORITE IMG */}
             <img
-              src={notFavoriteStarPNG}
-              onClick={() => addToFavorites(wordObject)}
+              className="word-list__favoritePNG"
+              src={
+                favoritedWord.find(
+                  (favWord: any) =>
+                    favWord.favoritedWord[0].word === wordObject[0].word
+                )
+                  ? favoriteStarPNG
+                  : notFavoriteStarPNG
+              }
+              onClick={handleFavoriteClick}
             ></img>
             {/* WORD */}
             <h2 className="word-list__word">{word.word}</h2>
@@ -42,14 +61,14 @@ function WordList({ wordObject }: IWordListProps) {
             {/* MEANINGS */}
             <section className="word-list__all-meanings">
               {word.meanings.map((meaning) => (
-                <div className="word-list__meaning" key={uuidv4()}>
+                <div className="word-list__meaning" key={getNewUniqueID()}>
                   <p className="word-list__meaning__part-of-speech">
                     {meaning.partOfSpeech}
                   </p>
                   {meaning.definitions.slice(0, 3).map((definition, index) => (
                     <div
                       className="word-list__meaning__definition"
-                      key={uuidv4()}
+                      key={getNewUniqueID()}
                     >
                       <p>
                         Definition {index + 1}: {definition.definition}
@@ -67,7 +86,11 @@ function WordList({ wordObject }: IWordListProps) {
               {word.phonetics.map(
                 (phonetic) =>
                   phonetic.audio && (
-                    <audio key={uuidv4()} src={phonetic.audio} controls></audio>
+                    <audio
+                      key={getNewUniqueID()}
+                      src={phonetic.audio}
+                      controls
+                    ></audio>
                   )
               )}
             </section>
