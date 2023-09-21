@@ -1,21 +1,26 @@
 interface ISearchbarProps {
-  setSearchWord: React.Dispatch<React.SetStateAction<string>>;
+  setWordObject: any;
 }
 
 interface IWordListProps {
-  searchWord: string;
+  wordObject: IDictionaryApiResponse[];
 }
 
 interface IDictionaryApiResponse {
   word: string;
-  phonetic?: string;
+  phonetic: string;
   phonetics: Phonetic[];
   meanings: Definition[];
+
+  // error...
+  title: string;
+  message: string;
+  resoluting: string;
 }
 
 interface Phonetic {
   audio: string;
-  text?: string;
+  text: string;
 }
 
 interface Definition {
