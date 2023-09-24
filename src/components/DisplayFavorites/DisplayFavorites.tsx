@@ -3,15 +3,11 @@ import "./DisplayFavorites.scss";
 import { FavoriteWord } from "../../context/FavoriteWordContextProvider.tsx";
 import { v4 as getNewUniqueID } from "uuid";
 import deletePNG from "../../assets/images/delete.png";
-
-interface IFavoriteWord {
-  id: string;
-  favoritedWord: IDictionaryApiResponse[];
-}
+import { DarkModeContext } from "../../App.tsx";
 
 function DisplayFavorites() {
   const { favoritedWord, dispatch } = useContext(FavoriteWord);
-  console.log(favoritedWord[0]);
+  const isDarkMode = useContext(DarkModeContext);
 
   function handleDelete(id: string) {
     dispatch({ type: "delete", payload: id });
@@ -27,8 +23,13 @@ function DisplayFavorites() {
           </p>
         ) : (
           <ul>
-            {favoritedWord.map((favWord: IFavoriteWord) => (
-              <li key={getNewUniqueID()} className="card-section__card">
+            {favoritedWord.map((favWord: IFavWord) => (
+              <li
+                key={getNewUniqueID()}
+                className={`card-section__card ${
+                  isDarkMode ? "" : " light-mode"
+                }`}
+              >
                 {/* DELETE */}
                 <img
                   onClick={() => handleDelete(favWord.id)}
