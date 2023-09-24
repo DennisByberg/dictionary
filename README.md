@@ -8,7 +8,7 @@ några extra stycken i den teoretiska inlämningen. I inlämningen ska du ge lä
 tillgång till din kodbas, förslagsvis via en länk till ett GitHub repo.
 
 #### Features
-* [G] Användaren kan söka efter ord i ett sökfält
+* [G] ~Användaren kan söka efter ord i ett sökfält
 * [G] Användaren kan se svaret från Free Dictionary API i en användarvänlig form.
 All information som finns med i exempelsvaret på förstasidan hos Free
 Dictionary API ska finnas med.
