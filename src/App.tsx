@@ -24,6 +24,7 @@ function App() {
         <ChangeDarkModeContext.Provider value={setIsDarkMode}>
           <Header />
           <ToggleFavorites
+            setWordObject={setWordObject}
             isFavoritesToggled={isFavoritesToggled}
             setIsFavoritesToggled={setIsFavoritesToggled}
           />
