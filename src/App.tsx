@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 import "./App.scss";
 import Header from "./components/Header/Header";
 import Searchbar from "./components/Searchbar/Searchbar";
-import WordList from "./components/WordList/WordList";
+import WordList from "./components/DisplaySearchList/DisplaySearchList";
 import DisplayFavorites from "./components/DisplayFavorites/DisplayFavorites";
 import ToggleFavorites from "./components/ToggleFavorites/ToggleFavorites";
 
@@ -27,11 +27,13 @@ function App() {
             isFavoritesToggled={isFavoritesToggled}
             setIsFavoritesToggled={setIsFavoritesToggled}
           />
-          <Searchbar setWordObject={setWordObject} />
           {isFavoritesToggled ? (
             <DisplayFavorites />
           ) : (
-            <WordList wordObject={wordObject} />
+            <>
+              <Searchbar setWordObject={setWordObject} />
+              <WordList wordObject={wordObject} />
+            </>
           )}
         </ChangeDarkModeContext.Provider>
       </DarkModeContext.Provider>

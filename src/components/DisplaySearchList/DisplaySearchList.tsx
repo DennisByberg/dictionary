@@ -1,11 +1,11 @@
 import { useContext, useEffect, useState } from "react";
-import "./WordList.scss";
+import "./DisplaySearchList.scss";
 import { v4 as getNewUniqueID } from "uuid";
 import { FavoriteWord } from "../../context/FavoriteWordContextProvider.js";
 import favoriteStarPNG from "../../assets/images/favorite-star.png";
 import notFavoriteStarPNG from "../../assets/images/not-favorite-star.png";
 
-function WordList({ wordObject }: IWordListProps) {
+function DisplaySearchList({ wordObject }: IDisplaySearchListProps) {
   const { dispatch, favoritedWord } = useContext(FavoriteWord);
   const [errorMessage, setErrorMessage] = useState<string>("");
 
@@ -20,24 +20,29 @@ function WordList({ wordObject }: IWordListProps) {
       dispatch({ type: "delete", payload: existingWord.id });
     } else {
       dispatch({ type: "add", payload: wordObject });
+      console.log(favoritedWord);
     }
   }
 
+  // Ändrar error meddelande
   useEffect(() => {
     if (!wordObject)
       setErrorMessage(
         "Sorry pal, we couldn't find definitions for the word you were looking for."
       );
+    setTimeout(() => {
+      setErrorMessage("");
+    }, 2000);
   });
 
   return (
-    <div className="word-list">
+    <div className="display-search-list">
       {Array.isArray(wordObject) && wordObject.length > 0 ? (
         wordObject.map((word) => (
-          <div key={getNewUniqueID()} className="word-list__card">
+          <div key={getNewUniqueID()} className="display-search-list__card">
             {/* FAVORITE IMG */}
             <img
-              className="word-list__favoritePNG"
+              className="display-search-list__favoritePNG"
               src={
                 favoritedWord.find(
                   (favWord: any) =>
@@ -49,25 +54,28 @@ function WordList({ wordObject }: IWordListProps) {
               onClick={handleFavoriteClick}
             ></img>
             {/* WORD */}
-            <h2 className="word-list__word">{word.word}</h2>
+            <h2 className="display-search-list__word">{word.word}</h2>
             {/* PHONETIC */}
-            <p className="word-list__phonetic">
+            <p className="display-search-list__phonetic">
               (
-              <span className="word-list__phonetic-span">
+              <span className="display-search-list__phonetic-span">
                 {word.phonetic ? word.phonetic : "No phonetic available"}
               </span>{" "}
               )
             </p>
             {/* MEANINGS */}
-            <section className="word-list__all-meanings">
+            <section className="display-search-list__all-meanings">
               {word.meanings.map((meaning) => (
-                <div className="word-list__meaning" key={getNewUniqueID()}>
-                  <p className="word-list__meaning__part-of-speech">
+                <div
+                  className="display-search-list__meaning"
+                  key={getNewUniqueID()}
+                >
+                  <p className="display-search-list__meaning__part-of-speech">
                     {meaning.partOfSpeech}
                   </p>
                   {meaning.definitions.slice(0, 3).map((definition, index) => (
                     <div
-                      className="word-list__meaning__definition"
+                      className="display-search-list__meaning__definition"
                       key={getNewUniqueID()}
                     >
                       <p>
@@ -82,7 +90,7 @@ function WordList({ wordObject }: IWordListProps) {
               ))}
             </section>
             {/* AUDIO */}
-            <section className="word-list__audio">
+            <section className="display-search-list__audio">
               {word.phonetics.map(
                 (phonetic) =>
                   phonetic.audio && (
@@ -97,10 +105,10 @@ function WordList({ wordObject }: IWordListProps) {
           </div>
         ))
       ) : (
-        <p>{errorMessage}</p>
+        <p className="display-search-list__error-txt">{errorMessage}</p>
       )}
     </div>
   );
 }
 
-export default WordList;
+export default DisplaySearchList;

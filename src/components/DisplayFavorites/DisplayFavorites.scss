@@ -1,0 +1,93 @@
+@import "../../sass/colors";
+@import "../../sass/fonts";
+@import "../../sass/mixins";
+
+.display-favorites {
+  margin: 0 1.5rem;
+  text-align: center;
+
+  h1 {
+    color: $yellowLogo;
+    text-transform: UPPERCASE;
+  }
+}
+
+.card-section {
+  @include containerMaxWidthAndCenter;
+
+  &__card {
+    margin-top: 2rem;
+    border: 1px solid $darkBlueLogo;
+    box-shadow: 1px 1px 3px $darkRedLogo;
+    border-radius: 5px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+  }
+
+  &__no-favorites-txt {
+    margin: 1rem;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: rgb(255, 135, 135);
+  }
+
+  &__deletePNG {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 35px;
+
+    transition: 0.2s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+  }
+
+  &__word {
+    text-transform: UPPERCASE;
+    font-size: 2rem;
+  }
+
+  &__phonetic {
+    margin-bottom: 2rem;
+  }
+
+  &__phonetic-span {
+    font-style: italic;
+    font-size: 1.2rem;
+  }
+
+  &__all-meanings {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  &__meaning {
+    &__part-of-speech {
+      color: $darkRedLogo;
+      text-transform: UPPERCASE;
+      margin-bottom: 0.4rem;
+      border-bottom: 1px solid $yellowLogo;
+    }
+
+    &__definition {
+      margin: 0.5rem 0;
+    }
+  }
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: rgba(255, 60, 213, 0.466);
+}
+
+audio::-webkit-media-controls-time-remaining-display {
+  color: white;
+}

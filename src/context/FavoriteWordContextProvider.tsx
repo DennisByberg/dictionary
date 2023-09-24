@@ -3,8 +3,13 @@ import { v4 as getNewUniqueID } from "uuid";
 
 export const FavoriteWord = createContext<any>(null);
 
+interface IFavoriteWord {
+  id: string;
+  favoritedWord: string;
+}
+
 function FavoriteWordContextProvider({ children }: any) {
-  const [favoritedWord, favoritedWordsDispatcher] = useReducer<any>(
+  const [favoritedWord, favoritedWordsDispatcher] = useReducer(
     favoritedWordReducer,
     []
   );
@@ -27,7 +32,10 @@ function FavoriteWordContextProvider({ children }: any) {
  * @param action
  * @returns - Ett nytt state baserat på handlingen
  */
-function favoritedWordReducer(favoritedWord: any, action: any) {
+function favoritedWordReducer(
+  favoritedWord: IFavoriteWord[],
+  action: { type: string; payload: string }
+) {
   switch (action.type) {
     case "add":
       // Kontrollerar om ordet redan finns i reducern
@@ -48,7 +56,7 @@ function favoritedWordReducer(favoritedWord: any, action: any) {
       ];
 
     case "delete":
-      return favoritedWord.filter((word: any) => word.id !== action.payload);
+      return favoritedWord.filter((word) => word.id !== action.payload);
 
     default:
       return favoritedWord;

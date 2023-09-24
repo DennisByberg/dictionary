@@ -2,7 +2,7 @@ interface ISearchbarProps {
   setWordObject: any;
 }
 
-interface IWordListProps {
+interface IDisplaySearchListProps {
   wordObject: IDictionaryApiResponse[];
 }
 

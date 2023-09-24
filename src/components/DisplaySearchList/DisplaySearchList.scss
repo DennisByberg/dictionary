@@ -2,7 +2,7 @@
 @import "../../sass/fonts";
 @import "../../sass/mixins";
 
-.word-list {
+.display-search-list {
   margin: 0 1.5rem;
 
   &__card {
@@ -64,6 +64,14 @@
     &__definition {
       margin: 0.5rem 0;
     }
+  }
+
+  &__error-txt {
+    margin: 1rem;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: rgb(255, 135, 135);
+    text-align: center;
   }
 }
 
