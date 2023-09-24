@@ -4,8 +4,10 @@ import { v4 as getNewUniqueID } from "uuid";
 import { FavoriteWord } from "../../context/FavoriteWordContextProvider.js";
 import favoriteStarPNG from "../../assets/images/favorite-star.png";
 import notFavoriteStarPNG from "../../assets/images/not-favorite-star.png";
+import { DarkModeContext } from "../../App.js";
 
 function DisplaySearchList({ wordObject }: IDisplaySearchListProps) {
+  const isDarkMode = useContext(DarkModeContext);
   const { dispatch, favoritedWord } = useContext(FavoriteWord);
   const [errorMessage, setErrorMessage] = useState<string>("");
 
@@ -30,16 +32,18 @@ function DisplaySearchList({ wordObject }: IDisplaySearchListProps) {
       setErrorMessage(
         "Sorry pal, we couldn't find definitions for the word you were looking for."
       );
-    setTimeout(() => {
-      setErrorMessage("");
-    }, 2000);
   });
 
   return (
     <div className="display-search-list">
       {Array.isArray(wordObject) && wordObject.length > 0 ? (
         wordObject.map((word) => (
-          <div key={getNewUniqueID()} className="display-search-list__card">
+          <div
+            key={getNewUniqueID()}
+            className={`display-search-list__card ${
+              isDarkMode ? "" : " light-mode"
+            }`}
+          >
             {/* FAVORITE IMG */}
             <img
               className="display-search-list__favoritePNG"
