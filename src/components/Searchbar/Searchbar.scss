@@ -2,7 +2,9 @@
 @import "../../sass/mixins";
 
 .searchbar {
-  margin: 0 1.5rem 2rem 1.5rem;
+  @include defaultMargins;
+  margin-bottom: 2rem;
+
   &__container {
     @include containerMaxWidthAndCenter;
     position: relative;
@@ -29,6 +31,7 @@
       &.light-mode {
         color: $black;
         border: 2px solid $blueLogo;
+        background-color: $whiteTransparent7;
 
         &::placeholder {
           color: $blackTransparent3;

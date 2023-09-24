@@ -1,0 +1,62 @@
+@mixin cardDesign {
+  border: 1px solid $blueLogo;
+  box-shadow: 3px 3px 6px $darkRedLogo;
+  border-radius: 5px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+@mixin cardErrorText {
+  margin: 1rem;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: rgb(255, 135, 135);
+  text-align: center;
+}
+
+@mixin audioDesign {
+  audio::-webkit-media-controls-panel {
+    background-color: rgba(255, 60, 213, 0.466);
+  }
+
+  audio::-webkit-media-controls-time-remaining-display {
+    color: white;
+  }
+}
+
+@mixin favAndDeletePNGDesign {
+  position: absolute;
+  top: 10px;
+  width: 32px;
+  transition: 0.2s ease-in-out;
+}
+
+@mixin wordDesign {
+  text-transform: UPPERCASE;
+  font-size: 2rem;
+}
+
+@mixin phoneticSpanDesign {
+  font-style: italic;
+  font-size: 1.2rem;
+}
+
+@mixin allMeaningsDesign {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@mixin partOfSpeechDesign {
+  color: $darkRedLogo;
+  font-weight: bold;
+  text-transform: UPPERCASE;
+  margin-bottom: 0.4rem;
+  border-bottom: 1px solid $yellowLogo;
+}

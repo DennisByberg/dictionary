@@ -1,30 +1,24 @@
 @import "../../sass/colors";
 @import "../../sass/fonts";
 @import "../../sass/mixins";
+@import "../../sass/cards-mixins";
 
 .display-search-list {
-  margin: 0 1.5rem;
+  @include audioDesign;
+  @include defaultMargins;
 
   &__card {
     @include containerMaxWidthAndCenter;
-    border: 1px solid $blueLogo;
-    box-shadow: 3px 3px 6px $darkRedLogo;
-    border-radius: 5px;
-    margin-inline: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 2rem;
-    position: relative;
+    @include cardDesign;
+
+    &.light-mode {
+      background-color: $whiteTransparent7;
+    }
   }
 
   &__favoritePNG {
-    position: absolute;
+    @include favAndDeletePNGDesign;
     left: 10px;
-    top: 10px;
-    width: 32px;
-    transition: 0.2s ease-in-out;
 
     &:hover {
       cursor: pointer;
@@ -33,13 +27,11 @@
   }
 
   &__word {
-    text-transform: UPPERCASE;
-    font-size: 2rem;
+    @include wordDesign;
   }
 
   &__phonetic-span {
-    font-style: italic;
-    font-size: 1.2rem;
+    @include phoneticSpanDesign;
   }
 
   &__phonetic {
@@ -47,18 +39,12 @@
   }
 
   &__all-meanings {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 2rem;
+    @include allMeaningsDesign;
   }
 
   &__meaning {
     &__part-of-speech {
-      color: $darkRedLogo;
-      text-transform: UPPERCASE;
-      margin-bottom: 0.4rem;
-      border-bottom: 1px solid $yellowLogo;
+      @include partOfSpeechDesign;
     }
 
     &__definition {
@@ -67,18 +53,6 @@
   }
 
   &__error-txt {
-    margin: 1rem;
-    font-size: 1.2rem;
-    font-style: italic;
-    color: rgb(255, 135, 135);
-    text-align: center;
+    @include cardErrorText;
   }
-}
-
-audio::-webkit-media-controls-panel {
-  background-color: rgba(255, 60, 213, 0.466);
-}
-
-audio::-webkit-media-controls-time-remaining-display {
-  color: white;
 }

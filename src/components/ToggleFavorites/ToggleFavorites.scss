@@ -2,7 +2,8 @@
 @import "../../sass/mixins";
 
 .toggle-favorites {
-  margin: 0 1.5rem 1rem 1.5rem;
+  @include defaultMargins;
+  margin-bottom: 1.5rem;
 
   &__container {
     @include containerMaxWidthAndCenter;
@@ -19,8 +20,15 @@
       border-radius: 5px;
       box-shadow: 2px 2px 4px $darkRedLogo;
       font-size: 1rem;
-
       transition: 0.2s ease-in-out;
+
+      // Light-Mode
+      &.light-mode {
+        background-color: $yellowLogo;
+        box-shadow: 2px 2px 4px $black;
+        color: $black;
+        border: 1px solid $black;
+      }
 
       &:hover {
         cursor: pointer;
@@ -30,16 +38,6 @@
       &::placeholder {
         font-style: italic;
         color: $whiteTransparent1;
-      }
-
-      // INPUT LIGHT MODE
-      &.light-mode {
-        color: $black;
-        border: 2px solid $blueLogo;
-
-        &::placeholder {
-          color: $blackTransparent3;
-        }
       }
     }
   }
