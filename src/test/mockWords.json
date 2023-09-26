@@ -1,17 +1,15 @@
 [
   {
     "word": "hello",
+    "phonetic": "/həˈləʊ/",
     "phonetics": [
       {
-        "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/hello-au.mp3"
+        "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/hello-au.mp3",
+        "text": "/həˈləʊ/"
       },
       {
-        "text": "/həˈləʊ/",
-        "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/hello-uk.mp3"
-      },
-      {
-        "text": "/həˈloʊ/",
-        "audio": ""
+        "audio": "https://api.dictionaryapi.dev/media/pronunciations/en/hello-uk.mp3",
+        "text": "/həˈloʊ/"
       }
     ],
     "meanings": [
@@ -40,7 +38,6 @@
           },
           {
             "definition": "A greeting used when answering the telephone.",
-            "synonyms": [],
             "example": "Hello? How may I help you?"
           },
           {

@@ -4,7 +4,7 @@ import Searchbar from "./Searchbar";
 import userEvent from "@testing-library/user-event";
 
 describe(Searchbar, () => {
-  it("Should render searchbar", () => {
+  it("Should render Searchbar without errors", () => {
     render(<Searchbar setWordObject={vi.fn()} />);
   });
 
