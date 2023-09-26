@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import Searchbar from "./Searchbar";
 import userEvent from "@testing-library/user-event";
 
@@ -27,6 +27,9 @@ describe(Searchbar, () => {
     expect(input).toHaveValue("hello");
 
     await user.click(searchBtn);
-    expect(input).toHaveValue("");
+
+    await waitFor(() => {
+      expect(input).toHaveValue("");
+    });
   });
 });
