@@ -4,14 +4,11 @@ import { FavoriteWord } from "../../context/FavoriteWordContextProvider.tsx";
 import { v4 as getNewUniqueID } from "uuid";
 import deletePNG from "../../assets/images/delete.png";
 import { DarkModeContext } from "../../App.tsx";
+import { deleteWordFromFavorites } from "../../utils/handleFavorites.ts";
 
 function DisplayFavorites() {
   const { favoritedWord, dispatch } = useContext(FavoriteWord);
   const isDarkMode = useContext(DarkModeContext);
-
-  function handleDelete(id: string) {
-    dispatch({ type: "delete", payload: id });
-  }
 
   return (
     <div className="display-favorites">
@@ -32,7 +29,7 @@ function DisplayFavorites() {
               >
                 {/* DELETE */}
                 <img
-                  onClick={() => handleDelete(favWord.id)}
+                  onClick={() => deleteWordFromFavorites(favWord.id, dispatch)}
                   className="card-section__deletePNG"
                   src={deletePNG}
                   alt="delete"

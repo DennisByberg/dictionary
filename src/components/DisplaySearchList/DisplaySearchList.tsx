@@ -5,28 +5,34 @@ import { FavoriteWord } from "../../context/FavoriteWordContextProvider.js";
 import favoriteStarPNG from "../../assets/images/favorite-star.png";
 import notFavoriteStarPNG from "../../assets/images/not-favorite-star.png";
 import { DarkModeContext } from "../../App.js";
+import {
+  addWordToFavorites,
+  deleteWordFromFavorites,
+} from "../../utils/handleFavorites.js";
 
 function DisplaySearchList({ wordObject }: IDisplaySearchListProps) {
   const isDarkMode = useContext(DarkModeContext);
   const { dispatch, favoritedWord } = useContext(FavoriteWord);
   const [errorMessage, setErrorMessage] = useState<string>("");
 
+  // Om ordet finns med i favoriter tar vi bort ordet
+  // Om det inte finns med lägger vi till det i favoriter
   function handleFavoriteClick() {
-    const wordObjectWord: string = wordObject[0].word;
+    const wordObjectWord = wordObject[0].word;
 
     const existingWord = favoritedWord.find(
       (word: any) => word.favoritedWord[0].word === wordObjectWord
     );
 
     if (existingWord) {
-      dispatch({ type: "delete", payload: existingWord.id });
+      deleteWordFromFavorites(existingWord.id, dispatch);
     } else {
-      dispatch({ type: "add", payload: wordObject });
-      console.log(favoritedWord);
+      // dispatch({ type: "add", payload: wordObject });
+      addWordToFavorites(wordObject, dispatch);
     }
   }
 
-  // Ändrar error meddelande
+  // Ändrar error meddelande om wordObjectet inte finns (mindre än 3 bokstäver eller ord som inte finns)
   useEffect(() => {
     if (!wordObject)
       setErrorMessage(
