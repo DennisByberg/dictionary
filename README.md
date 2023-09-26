@@ -15,8 +15,8 @@ Dictionary API ska finnas med.
 * [G] Användaren kan se ett error om de söker med ett tomt sökfält.
 * [G] Användaren kan spela upp ljudfilen från API:et om den finns tillgänglig.
 * [VG] Användare ska kunna spara sina "favoritord" i en session. Dessa ska finnas
-tillgängliga i en lista för användaren att se. Från listan ska man kunna se det
-sparade svaret från API. Man ska även kunna ta bort sina favoritord.
+  tillgängliga i en lista för användaren att se. Från listan ska man kunna se det
+sparade svaret från API. Man ska även kunna ta bort sina favoritord.~
 * [VG] Byta mellan dark och light theme.
 
 #### Testning
