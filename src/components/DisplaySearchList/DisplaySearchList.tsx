@@ -8,7 +8,7 @@ import { DarkModeContext } from "../../App.js";
 import {
   addWordToFavorites,
   deleteWordFromFavorites,
-} from "../../utils/handleFavorites.js";
+} from "../../utils/handleFavorites";
 
 function DisplaySearchList({ wordObject }: IDisplaySearchListProps) {
   const isDarkMode = useContext(DarkModeContext);
@@ -27,7 +27,6 @@ function DisplaySearchList({ wordObject }: IDisplaySearchListProps) {
     if (existingWord) {
       deleteWordFromFavorites(existingWord.id, dispatch);
     } else {
-      // dispatch({ type: "add", payload: wordObject });
       addWordToFavorites(wordObject, dispatch);
     }
   }
