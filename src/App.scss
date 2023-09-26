@@ -19,11 +19,11 @@
   // Light Mode.
   &.light-mode {
     background-color: $defaultLightModeBackground;
+
     background-image: url("https://wallpapers.com/images/hd/4k-white-abstract-waves-i308ljad82204626.jpg");
-    /* You can also use other properties to control the background */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-size: cover; /* Scales the image to cover the entire element */
-    /* Add other background properties as needed */
+    background-repeat: no-repeat;
+    background-size: cover;
+
     color: $defaultLightModeText;
   }
 }
