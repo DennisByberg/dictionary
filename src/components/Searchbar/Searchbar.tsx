@@ -9,7 +9,7 @@ function Searchbar({ setWordObject }: ISearchbarProps) {
   const [searchInput, setSearchInput] = useState<string>("");
 
   async function handleSearch() {
-    const fetchedWord = await fetchSearchedWord(searchInput);
+    const fetchedWord: any = await fetchSearchedWord(searchInput);
     setWordObject(fetchedWord);
     setSearchInput("");
   }

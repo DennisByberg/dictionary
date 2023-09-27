@@ -20,19 +20,22 @@ function DisplaySearchList({ wordObject }: IDisplaySearchListProps) {
   function handleFavoriteClick() {
     const wordObjectWord = wordObject[0].word;
 
-    const existingWord = favoritedWord.find(
-      (word: any) => word.favoritedWord[0].word === wordObjectWord
-    );
+    if (favoritedWord !== undefined) {
+      const existingWord = favoritedWord.find(
+        (word: any) => word.favoritedWord[0].word === wordObjectWord
+      );
 
-    if (existingWord) {
-      deleteWordFromFavorites(existingWord.id, dispatch);
-    } else {
-      addWordToFavorites(wordObject, dispatch);
+      if (existingWord) {
+        deleteWordFromFavorites(existingWord.id, dispatch);
+      } else {
+        addWordToFavorites(wordObject, dispatch);
+      }
     }
   }
 
   // Ändrar error meddelande om wordObjectet inte finns (mindre än 3 bokstäver eller ord som inte finns)
   useEffect(() => {
+    console.log(wordObject);
     if (!wordObject)
       setErrorMessage(
         "Sorry pal, we couldn't find definitions for the word you were looking for."
@@ -53,6 +56,7 @@ function DisplaySearchList({ wordObject }: IDisplaySearchListProps) {
             <img
               className="display-search-list__favoritePNG"
               src={
+                favoritedWord !== undefined &&
                 favoritedWord.find(
                   (favWord: any) =>
                     favWord.favoritedWord[0].word === wordObject[0].word
