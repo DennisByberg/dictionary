@@ -1,6 +1,8 @@
 //--- PROPS --- //
 interface ISearchbarProps {
-  setWordObject: any;
+  setWordObject: React.Dispatch<
+    React.SetStateAction<IDictionaryApiResponse[] | []>
+  >;
 }
 
 interface IDisplaySearchListProps {
@@ -40,7 +42,7 @@ interface IFavWord {
 
 interface Phonetic {
   audio: string;
-  text: string;
+  text?: string;
 }
 
 interface Definition {
