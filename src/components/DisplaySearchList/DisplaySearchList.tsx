@@ -35,7 +35,6 @@ function DisplaySearchList({ wordObject }: IDisplaySearchListProps) {
 
   // Ändrar error meddelande om wordObjectet inte finns (mindre än 3 bokstäver eller ord som inte finns)
   useEffect(() => {
-    console.log(wordObject);
     if (!wordObject)
       setErrorMessage(
         "Sorry pal, we couldn't find definitions for the word you were looking for."
@@ -55,6 +54,7 @@ function DisplaySearchList({ wordObject }: IDisplaySearchListProps) {
             {/* FAVORITE IMG */}
             <img
               className="display-search-list__favoritePNG"
+              alt="A star"
               src={
                 favoritedWord !== undefined &&
                 favoritedWord.find(
@@ -111,6 +111,7 @@ function DisplaySearchList({ wordObject }: IDisplaySearchListProps) {
                       key={getNewUniqueID()}
                       src={phonetic.audio}
                       controls
+                      data-testid="audio-element"
                     ></audio>
                   )
               )}
