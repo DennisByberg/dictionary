@@ -88,6 +88,7 @@ function DisplayFavorites() {
                             key={getNewUniqueID()}
                             src={phonetic.audio}
                             controls
+                            data-testid="audio-element"
                           ></audio>
                         )
                     )}

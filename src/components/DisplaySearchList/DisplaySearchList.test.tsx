@@ -1,12 +1,11 @@
 import { describe, test, expect, beforeAll, afterAll } from "vitest";
 import { render, screen } from "@testing-library/react";
-import { mockedWord } from "../../mockedWord"; // Mocked Word = "Cat"
+import { mockedWord } from "../../mocks/mockedWord"; // Mocked Word = "Cat"
 import DisplaySearchList from "./DisplaySearchList";
 
 import { rest } from "msw";
 import { setupServer } from "msw/node";
 
-// Mock.
 const server = setupServer(
   rest.get(
     "https://api.dictionaryapi.dev/api/v2/entries/en/cat",
@@ -16,9 +15,7 @@ const server = setupServer(
   )
 );
 
-// Startar mock server innan vi kör tester
 beforeAll(() => server.listen());
-// Avslutar mock tester efter alla tester har gjorts
 afterAll(() => server.close());
 
 describe(DisplaySearchList, () => {
@@ -62,7 +59,6 @@ describe(DisplaySearchList, () => {
   test("Should render 2 audio files", () => {
     render(<DisplaySearchList wordObject={mockedWord} />);
 
-    // OBS: Funkar inte med någon aria label på audio så får använda test id.
     const audioElements = screen.getAllByTestId("audio-element");
 
     expect(audioElements).toHaveLength(2);
