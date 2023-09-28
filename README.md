@@ -2,6 +2,7 @@
 
 Jag har valt att göra hela projektet i typescript och vite för att utmana mig själv, det har varit krångligt när man försökt lära sig testning samtidigt som alla typer krånglar, samt inte finns lika mycket dokumentation om testning i vite / ts. 
 Men men... tycker jag har fått till det bra, 2-3 any's här och var annars ska allt vara i sin ordning.
+Jag har även valt att skala ner på svaren man får från API't för att underlätta det med typescript. Blev mest repeterande kod och endast "synonyms" och "antonyms": [] jag valde att skala bort.
 
 #### Features
 * ✅ [G] Användaren kan söka efter ord i ett sökfält. 
