@@ -20,7 +20,7 @@ const server = setupServer(
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
-// Test 1 | Det här testet är till för att verifiera att vi lyckas hitta favoritordet vi har i våran provider
+// Test 1 | Det här testet är till för att verifiera att vi lyckas hitta favoritordet vi har i våran provider och lyckas rendera ut det.
 describe(DisplayFavorites, () => {
   test("Should render my favoriteList with 1 favorite", () => {
     render(

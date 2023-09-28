@@ -1,7 +1,7 @@
 import { ReactNode, createContext, useReducer } from "react";
 import favoritedWordReducer from "./FavoriteWordReducer";
 
-export const FavoriteWord = createContext<IFavWord[] | [] | any>([]); // TODO (Om tid finns): Inte använda any här...
+export const FavoriteWord = createContext<IFavWord[] | [] | any>([]);
 
 function FavoriteWordContextProvider({ children }: { children: ReactNode }) {
   const [favoritedWord, favoritedWordDispatcher] = useReducer(
