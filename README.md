@@ -1,11 +1,7 @@
 # Dictionary ( Inlämning )
-## Praktisk del
 
-Din uppgift är att implementera en ordbok där användare kan slå upp ord med hjälp av
-Free Dictionary API. Du kan leta runt på internet för inspiration till en egen design.
-Om du vill resonera kring dina val av tester och byggsystem går det bra att skriva in
-några extra stycken i den teoretiska inlämningen. I inlämningen ska du ge läraren
-tillgång till din kodbas, förslagsvis via en länk till ett GitHub repo.
+Jag har valt att göra hela projektet i typescript för att utmana mig själv, det har varit krångligt när man försökt lära sig testning samtidigt som alla typer krånglar, 
+men men... tycker jag har fått till det bra, 2-3 any's här och var annars ska allt vara i sin ordning.
 
 #### Features
 * ✅ [G] Användaren kan söka efter ord i ett sökfält. 
