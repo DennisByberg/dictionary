@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import "./ToggleFavorites.scss";
 import { DarkModeContext } from "../../App";
-import { FavoriteWord } from "../../context/FavoriteWordContextProvider";
 
 function ToggleFavorites({
   isFavoritesToggled,
@@ -15,8 +14,6 @@ function ToggleFavorites({
     setWordObject([]);
   }
 
-  const { favoritedWord } = useContext(FavoriteWord);
-
   return (
     <div className="toggle-favorites">
       <div className="toggle-favorites__container">
@@ -26,8 +23,7 @@ function ToggleFavorites({
             isDarkMode ? "" : " light-mode"
           }`}
         >
-          {isFavoritesToggled ? "Hide" : "Show"} Favorites ({" "}
-          {favoritedWord.length} )
+          {isFavoritesToggled ? "Hide" : "Show"} Favorites
         </button>
       </div>
     </div>
