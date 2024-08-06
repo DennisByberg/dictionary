@@ -1,3 +1,6 @@
+## Live
+https://dictionary-submission.vercel.app/
+
 # Dictionary ( Inlämning )
 
 Jag har valt att göra hela projektet i typescript och vite för att utmana mig själv, det har varit krångligt när man försökt lära sig testning samtidigt som alla typer krånglar, samt inte finns lika mycket dokumentation om testning i vite / ts. 
