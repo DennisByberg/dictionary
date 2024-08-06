@@ -1,6 +1,4 @@
-## LIVE ON VERCEL:
-
-[CLICK HERE](https://dictionary-submission.vercel.app/) to view the live application hosted on Vercel.
+## LIVE ON VERCEL: [DICTIONARY](https://dictionary-submission.vercel.app/)
 
 #### Features
 * ✅ The user can search for words in a search field.
