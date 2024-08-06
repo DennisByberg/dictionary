@@ -1,4 +1,4 @@
-## LIVE ON VERCEL: [https://dictionary-submission.vercel.app/](https://dictionary-submission.vercel.app/)
+## LIVE ON VERCEL: [https://dictionary-submission.vercel.app](https://dictionary-submission.vercel.app/)
 
 #### Features
 * ✅ The user can search for words in a search field.
